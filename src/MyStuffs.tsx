@@ -103,21 +103,16 @@ function MyStuffs() {
           openTimeout={900}
           name="SOCIAL LINKS"
           items={[
-            <div>
-              <Link link="https://twitter.com/reactoverflow" text="X" />
-            </div>,
-            <div>
-              <Link
-                link="https://www.linkedin.com/in/reactoverflow/"
-                text="LinkedIn"
-              />
-            </div>,
-            <div>
-              <Link
-                link="https://www.instagram.com/cybrchad/"
-                text="Instagram"
-              />
-            </div>,
+            <Link link="https://github.com/siddharthroy12" text="Github" />,
+            <Link link="https://twitter.com/reactoverflow" text="X" />,
+            <Link
+              link="https://www.linkedin.com/in/reactoverflow/"
+              text="LinkedIn"
+            />,
+            <Link
+              link="https://www.instagram.com/cybrchad/"
+              text="Instagram"
+            />,
           ]}
         />,
         <Link link="./Resume.pdf" text="Resume" />,
