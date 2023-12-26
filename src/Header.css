@@ -1,3 +1,16 @@
 .header {
   border-bottom: 1px solid var(--line-color);
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  display: block;
+  width: 49px;
+  padding: 0 2px;
+  border-right: 1px solid var(--line-color);
+}
+
+.header-site-name * {
+  text-decoration: none;
 }

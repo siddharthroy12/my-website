@@ -1,9 +1,10 @@
 import "./Bio.css";
 import Link from "./Link";
+import HoverAnimation from "./HoverAnimation";
 
 function Bio() {
   return (
-    <div className="bio base-padding">
+    <div className="bio">
       <p>Yet another guy who loves programming. Lives with a husky.</p>
       <p>
         Currently making IAoT Dashboards at{" "}
@@ -11,11 +12,15 @@ function Bio() {
       </p>
       <br />
       <p>
-        <span className="imp-text">LIKES:</span> Making Apps on web and mobile
-        and game programming
+        <span className="imp-text">
+          <HoverAnimation text="LIKES" />:
+        </span>{" "}
+        Making Apps on web and mobile and game programming
       </p>
       <p>
-        <span className="imp-text">LANGUAGES/FRAMEWORKS:</span>{" "}
+        <span className="imp-text">
+          <HoverAnimation text="LANGUAGES/FRAMEWORKS" />:
+        </span>{" "}
         JavaScript/Typescript, React, Dart, Flutter, Java, LibGDX
       </p>
     </div>

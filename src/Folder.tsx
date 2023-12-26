@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Folder.css";
 import HoverAnimation from "./HoverAnimation";
 type FolderProps = {
   name: string;
   opened?: boolean;
+  openTimeout?: number;
   items: Array<JSX.Element>;
 };
 
-function Folder({ name, items, opened }: FolderProps) {
-  const [isOpen, setIsOpen] = useState(opened);
+function Folder({ name, items, opened, openTimeout }: FolderProps) {
+  const [isOpen, setIsOpen] = useState(false);
   const [baseKey, setBaseKey] = useState<string>("0");
+
+  useEffect(() => {
+    if (opened) {
+      setTimeout(() => {
+        setIsOpen(true);
+      }, openTimeout);
+    }
+  }, [opened]);
+
   return (
     <div className="folder">
       <div
