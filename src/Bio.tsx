@@ -8,7 +8,10 @@ function Bio() {
     <div className="bio">
       <p>
         Yet another guy who loves programming. Lives with a{" "}
-        <RouterLink to="husky-pictures">husky</RouterLink>.
+        <RouterLink to="husky-pictures">
+          <HoverAnimation text="husky" />
+        </RouterLink>
+        .
       </p>
       <p>
         Currently making IAoT Dashboards at{" "}
