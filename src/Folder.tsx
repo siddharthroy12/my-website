@@ -46,7 +46,7 @@ function Folder({ name, items, opened }: FolderProps) {
               <div key={index + baseKey} style={{ display: "flex" }}>
                 <div
                   style={{
-                    width: "36px",
+                    flex: "0 0 36px",
                     display: "flex",
                   }}
                 >
