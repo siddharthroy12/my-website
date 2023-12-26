@@ -2,7 +2,6 @@ import "./App.css";
 import Header from "./Header";
 import Bio from "./Bio";
 import Folder from "./Folder";
-import HoverAnimation from "./HoverAnimation";
 import Link from "./Link";
 
 function App() {
