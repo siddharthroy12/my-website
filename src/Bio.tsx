@@ -1,11 +1,15 @@
 import "./Bio.css";
 import Link from "./Link";
+import { Link as RouterLink } from "react-router-dom";
 import HoverAnimation from "./HoverAnimation";
 
 function Bio() {
   return (
     <div className="bio">
-      <p>Yet another guy who loves programming. Lives with a husky.</p>
+      <p>
+        Yet another guy who loves programming. Lives with a{" "}
+        <RouterLink to="husky-pictures">husky</RouterLink>.
+      </p>
       <p>
         Currently making IAoT Dashboards at{" "}
         <Link link="https://www.everlytics.io/" text="Everlytics" />.
