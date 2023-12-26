@@ -6,7 +6,7 @@ function Bio() {
     <div className="bio base-padding">
       <p>Yet another guy who loves programming. Lives with a husky.</p>
       <p>
-        Currently making IoTA Dashboards at{" "}
+        Currently making IAoT Dashboards at{" "}
         <Link link="https://www.everlytics.io/" text="Everlytics" />.
       </p>
       <br />

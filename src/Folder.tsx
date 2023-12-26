@@ -65,7 +65,7 @@ function Folder({ name, items, opened }: FolderProps) {
                     }}
                   />
                 </div>
-                <div style={{ paddingTop: "3px" }}>{child}</div>
+                <div style={{ paddingTop: "3px", width: "100%" }}>{child}</div>
               </div>
             );
           })}
