@@ -7,19 +7,19 @@ import Loading from "./Loading";
 
 function SiteNavigation() {
   const [key, setKey] = useState(crypto.randomUUID());
-  const [blogs, setBlogs] = useState<{ id: number; title: string }[]>([]);
+  const [blogs, setBlogs] = useState<{ title: string; slug: string }[]>([]);
   const [isBlogsLoading, setBlogsLoading] = useState(true);
 
   useEffect(() => {
     supabase
       .from("blogs")
-      .select("title,id")
+      .select("title, slug")
       .then((res) => {
-        let list: { id: number; title: string }[] = [];
+        let list: { title: string; slug: string }[] = [];
         res.data?.forEach((row) => {
           list.push({
-            id: row.id,
             title: row.title,
+            slug: row.slug,
           });
         });
         setBlogs(list);
@@ -53,7 +53,7 @@ function SiteNavigation() {
             isBlogsLoading
               ? [<Loading />]
               : blogs.map((blog) =>
-                  renderDestination(`/blog/${blog.id}`, blog.title),
+                  renderDestination(`/blog/${blog.slug}`, blog.title)
                 )
           }
         />,

@@ -10,8 +10,8 @@ import Blog from "./Blog";
 async function blogLoader({ params }: any) {
   const blog = await supabase
     .from("blogs")
-    .select("id, title, content, created_at")
-    .eq("id", params.id);
+    .select("slug, title, content, created_at")
+    .eq("slug", params.id);
 
   if (blog.data === null) {
     throw new Response("", {
