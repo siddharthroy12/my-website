@@ -3,7 +3,6 @@ import Home from "./Home";
 import Root from "./Root";
 import HuskyPictures from "./HuskyPictures";
 import AreYouLost from "./AreYouLost";
-import Loading from "./Loading";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import supabase from "./supabaseClient";
 import Blog from "./Blog";
