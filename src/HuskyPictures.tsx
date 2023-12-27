@@ -1,43 +1,85 @@
 import useTitleStore from "./useTitleStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import supabase from "./supabaseClient";
+import Loading from "./Loading";
 import "./HuskyPictures.css";
 
-const ids = ["qZ5XKQv", "iVcHHZ6", "KZp2Bl5", "YAMSq6P", "DQYCRlL"];
-const columns = 5;
+const columns = 4;
 
-function divideArrayIntoParts(n: number, arr: any[]) {
-  if (n <= 0 || !Array.isArray(arr)) {
-    return [arr];
+function divideArray(array: any[], maxSize: number) {
+  if (!Array.isArray(array) || typeof maxSize !== "number" || maxSize <= 0) {
+    throw new Error("Invalid input");
   }
 
   const result = [];
-  const length = arr.length;
-  const partSize = Math.ceil(length / n);
-
-  for (let i = 0; i < length; i += partSize) {
-    result.push(arr.slice(i, i + partSize));
+  for (let i = 0; i < array.length; i += maxSize) {
+    const part = array.slice(i, i + maxSize);
+    result.push(part);
   }
 
   return result;
 }
 
-const dividedIds: string[][] = divideArrayIntoParts(columns, ids);
-console.log(dividedIds);
+function rotateMatrix(matrix: any[][]) {
+  if (
+    !Array.isArray(matrix) ||
+    matrix.length === 0 ||
+    !Array.isArray(matrix[0])
+  ) {
+    throw new Error("Invalid input");
+  }
+
+  const numRows = matrix.length;
+  const numCols = matrix[0].length;
+
+  // Transpose the matrix (swap rows with columns)
+  const transposedMatrix: any[][] = Array.from({ length: numCols }, () => []);
+
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      transposedMatrix[j][i] = matrix[i][j];
+    }
+  }
+
+  // Reverse each row to get the final rotated matrix
+  const rotatedMatrix = transposedMatrix.map((row) => row.reverse());
+
+  return rotatedMatrix;
+}
 
 function HuskyPictures() {
   const { setTitle } = useTitleStore();
+  const [urls, setUrls] = useState<string[][]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setTitle("MY BRATTY HUSKY");
+    supabase.storage
+      .from("husky-pictures")
+      .list("")
+      .then((res) => {
+        let list: any[] = [];
+        res.data?.forEach((file) => {
+          list.push(
+            supabase.storage.from("husky-pictures").getPublicUrl(file.name).data
+              .publicUrl,
+          );
+        });
+        setUrls(rotateMatrix(divideArray(list, columns)));
+        setIsLoading(false);
+      });
   }, []);
+
   return (
     <>
       <p>She is cute but she bites hard.</p>
+      {isLoading ? <Loading /> : null}
       <div className="husky-pictures">
         <div className="row">
-          {dividedIds.map((column) => (
+          {urls.map((column) => (
             <div className="column">
-              {column.map((id) => (
-                <img src={`https://i.imgur.com/${id}.png`} />
+              {column.map((url) => (
+                <img src={url} />
               ))}
             </div>
           ))}
