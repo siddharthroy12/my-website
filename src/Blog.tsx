@@ -27,7 +27,7 @@ function Blog() {
           a: (props) => {
             const { node, ...rest } = props;
             return (
-              <a href={rest.href}>
+              <a href={rest.href} target="_blank" rel="noreferrer">
                 {/* @ts-ignore */}
                 <HoverAnimation text={rest.children} />
               </a>
