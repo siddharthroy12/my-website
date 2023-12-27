@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.1",
+    "@vercel/analytics": "^1.1.1",
     "react": "^18.2.0",
     "react-decode-animation": "^1.0.7",
     "react-dom": "^18.2.0",
