@@ -2,8 +2,8 @@ import useTitleStore from "./useTitleStore";
 import { useEffect } from "react";
 import "./HuskyPictures.css";
 
-const ids = ["qZ5XKQv", "iVcHHZ6", "KZp2Bl5.png", "YAMSq6P.png"];
-const columns = 4;
+const ids = ["qZ5XKQv", "iVcHHZ6", "KZp2Bl5", "YAMSq6P", "DQYCRlL"];
+const columns = 5;
 
 function divideArrayIntoParts(n: number, arr: any[]) {
   if (n <= 0 || !Array.isArray(arr)) {
@@ -22,6 +22,7 @@ function divideArrayIntoParts(n: number, arr: any[]) {
 }
 
 const dividedIds: string[][] = divideArrayIntoParts(columns, ids);
+console.log(dividedIds);
 
 function HuskyPictures() {
   const { setTitle } = useTitleStore();

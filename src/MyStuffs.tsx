@@ -28,7 +28,7 @@ function MyStuffs() {
         />,
         <Folder
           opened={opened}
-          openTimeout={700}
+          openTimeout={800}
           name="PROJECTS"
           items={[
             <div>
@@ -100,7 +100,7 @@ function MyStuffs() {
         />,
         <Folder
           opened={opened}
-          openTimeout={900}
+          openTimeout={1200}
           name="SOCIAL LINKS"
           items={[
             <Link link="https://github.com/siddharthroy12" text="Github" />,
