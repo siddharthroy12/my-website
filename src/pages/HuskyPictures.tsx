@@ -1,11 +1,10 @@
 import useTitleStore from "../useTitleStore";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import supabase from "../supabaseClient";
 import Loading from "../Loading";
 import "./HuskyPictures.css";
 import Meta from "../Meta";
-
-const columns = 4;
+import { useMaxWidth } from "../useMaxWidth";
 
 function divideArray(array: any[], maxSize: number) {
   if (!Array.isArray(array) || typeof maxSize !== "number" || maxSize <= 0) {
@@ -27,7 +26,7 @@ function rotateMatrix(matrix: any[][]) {
     matrix.length === 0 ||
     !Array.isArray(matrix[0])
   ) {
-    throw new Error("Invalid input");
+    return [];
   }
 
   const numRows = matrix.length;
@@ -50,8 +49,10 @@ function rotateMatrix(matrix: any[][]) {
 
 function HuskyPictures() {
   const { setTitle } = useTitleStore();
-  const [urls, setUrls] = useState<string[][]>([]);
+  const [urls, setUrls] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const isFourColumn = !useMaxWidth(800);
 
   useEffect(() => {
     setTitle("MY BRATTY HUSKY");
@@ -66,10 +67,16 @@ function HuskyPictures() {
               .publicUrl,
           );
         });
-        setUrls(rotateMatrix(divideArray(list, columns)));
+        setUrls(list);
         setIsLoading(false);
       });
   }, []);
+
+  const matrix = useMemo(() => {
+    return rotateMatrix(divideArray(urls, isFourColumn ? 4 : 2));
+  }, [isFourColumn]);
+
+  console.log(matrix);
 
   return (
     <>
@@ -82,7 +89,7 @@ function HuskyPictures() {
       {isLoading ? <Loading /> : null}
       <div className="husky-pictures">
         <div className="row">
-          {urls.map((column) => (
+          {matrix.map((column) => (
             <div className="column">
               {column.map((url) => (
                 <img src={url} />
