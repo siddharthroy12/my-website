@@ -28,7 +28,7 @@ function Bio() {
         <span className="imp-text">
           <HoverAnimation text="LANGUAGES/FRAMEWORKS" />:
         </span>{" "}
-        JavaScript/Typescript, React, Dart, Flutter, Java, LibGDX
+        Python, JavaScript/Typescript, React, Dart, Flutter
       </p>
     </div>
   );

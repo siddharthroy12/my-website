@@ -22,7 +22,7 @@ function MyStuffs() {
           items={[
             <div>
               <Link link="https://www.everlytics.io/" text="Everlytics" />{" "}
-              [Frontend Developer] (2021 - Current)
+              [Frontend Developer] (2022 - Current)
             </div>,
           ]}
         />,
