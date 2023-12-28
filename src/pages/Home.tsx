@@ -1,8 +1,8 @@
-import Bio from "./Bio";
-import MyStuffs from "./MyStuffs";
-import useTitleStore from "./useTitleStore";
+import Bio from "../Bio";
+import MyStuffs from "../MyStuffs";
+import useTitleStore from "../useTitleStore";
 import { useEffect } from "react";
-import Meta from "./Meta";
+import Meta from "../Meta";
 
 function Home() {
   const { setTitle } = useTitleStore();

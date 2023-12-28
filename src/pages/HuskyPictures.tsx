@@ -1,9 +1,9 @@
-import useTitleStore from "./useTitleStore";
+import useTitleStore from "../useTitleStore";
 import { useEffect, useState } from "react";
-import supabase from "./supabaseClient";
-import Loading from "./Loading";
+import supabase from "../supabaseClient";
+import Loading from "../Loading";
 import "./HuskyPictures.css";
-import Meta from "./Meta";
+import Meta from "../Meta";
 
 const columns = 4;
 

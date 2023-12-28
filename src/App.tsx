@@ -1,11 +1,11 @@
 import "./App.css";
-import Home from "./Home";
+import Home from "./pages/Home";
 import Root from "./Root";
-import HuskyPictures from "./HuskyPictures";
+import HuskyPictures from "./pages/HuskyPictures";
 import AreYouLost from "./AreYouLost";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import supabase from "./supabaseClient";
-import Blog from "./Blog";
+import Blog from "./pages/Blog";
 
 async function blogLoader({ params }: any) {
   const blog = await supabase

@@ -1,10 +1,11 @@
 import { useEffect, useMemo } from "react";
 import { useLoaderData } from "react-router-dom";
-import useTitleStore from "./useTitleStore";
+import useTitleStore from "../useTitleStore";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import HoverAnimation from "./HoverAnimation";
-import Meta from "./Meta";
+import HoverAnimation from "../HoverAnimation";
+import Meta from "../Meta";
+import "./Blog.css";
 
 function getFirstSentence(inputString: string) {
   const splits = inputString.split("\n");
@@ -60,7 +61,7 @@ function Blog() {
   }, [title]);
 
   return (
-    <>
+    <div className="blog">
       <Meta title={title} description={firstSentence} image={firstImage} />
       <p>
         Created at:{" "}
@@ -82,7 +83,7 @@ function Blog() {
       >
         {content}
       </Markdown>
-    </>
+    </div>
   );
 }
 
