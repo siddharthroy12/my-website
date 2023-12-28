@@ -74,9 +74,9 @@ function HuskyPictures() {
 
   const matrix = useMemo(() => {
     return rotateMatrix(divideArray(urls, isFourColumn ? 4 : 2));
-  }, [isFourColumn]);
+  }, [isFourColumn, urls]);
 
-  console.log(matrix);
+  console.log(isFourColumn);
 
   return (
     <>
