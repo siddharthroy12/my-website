@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import supabase from "./supabaseClient";
 import Loading from "./Loading";
 import "./HuskyPictures.css";
+import Meta from "./Meta";
 
 const columns = 4;
 
@@ -72,6 +73,11 @@ function HuskyPictures() {
 
   return (
     <>
+      <Meta
+        title="My bratty husky"
+        description="Adorable pictures of my bratty husky"
+        image="https://txpncpayffizjcvvaupf.supabase.co/storage/v1/object/public/husky-pictures/KZp2Bl5.webp"
+      />
       <p>She is cute but she bites hard.</p>
       {isLoading ? <Loading /> : null}
       <div className="husky-pictures">
