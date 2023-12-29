@@ -1,24 +1,48 @@
 import { useEffect, useState } from "react";
 import "./Folder.css";
 import HoverAnimation from "./HoverAnimation";
+
 type FolderProps = {
   name: string;
   opened?: boolean;
+  onOpenedChanged?: (arg0: boolean) => void;
+  autoOpen?: boolean;
   openTimeout?: number;
   items: Array<JSX.Element>;
 };
 
-function Folder({ name, items, opened, openTimeout }: FolderProps) {
-  const [isOpen, setIsOpen] = useState(false);
+function Folder({
+  name,
+  items,
+  opened,
+  openTimeout,
+  autoOpen,
+  onOpenedChanged,
+}: FolderProps) {
+  const [isOpen, setIsOpen] = useState<boolean>(
+    opened === undefined ? false : opened,
+  );
   const [baseKey, setBaseKey] = useState<string>("0");
 
   useEffect(() => {
-    if (opened) {
+    if (opened !== undefined) {
+      setIsOpen(opened);
+    }
+  }, [opened]);
+
+  useEffect(() => {
+    if (autoOpen) {
       setTimeout(() => {
         setIsOpen(true);
       }, openTimeout);
     }
-  }, [opened]);
+  }, [autoOpen, openTimeout]);
+
+  useEffect(() => {
+    if (onOpenedChanged) {
+      onOpenedChanged(isOpen);
+    }
+  }, [isOpen]);
 
   return (
     <div className="folder">
@@ -70,12 +94,20 @@ function Folder({ name, items, opened, openTimeout }: FolderProps) {
                   <div
                     style={{
                       width: "100%",
-                      height: "14px",
+                      height: "17px",
                       borderBottom: "1px solid var(--line-color)",
                     }}
                   />
                 </div>
-                <div style={{ paddingTop: "3px", width: "100%" }}>{child}</div>
+                <div
+                  style={{
+                    paddingTop: "5px",
+                    width: "100%",
+                    paddingLeft: "5px",
+                  }}
+                >
+                  {child}
+                </div>
               </div>
             );
           })}

@@ -4,7 +4,7 @@ const useTitleStore = create<{
   title: string;
   setTitle: (arg0: string) => void;
 }>((set) => ({
-  title: "Siddharth Roy",
+  title: "",
   setTitle: (newTitle: string) => set(() => ({ title: newTitle })),
 }));
 

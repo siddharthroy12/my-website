@@ -11,12 +11,12 @@ function MyStuffs() {
 
   return (
     <Folder
-      opened={opened}
+      autoOpen={opened}
       openTimeout={200}
       name="PORTFOLIO"
       items={[
         <Folder
-          opened={opened}
+          autoOpen={opened}
           openTimeout={500}
           name="WORK HISTORY"
           items={[
@@ -27,7 +27,7 @@ function MyStuffs() {
           ]}
         />,
         <Folder
-          opened={opened}
+          autoOpen={opened}
           openTimeout={800}
           name="PROJECTS"
           items={[
@@ -99,7 +99,7 @@ function MyStuffs() {
           ]}
         />,
         <Folder
-          opened={opened}
+          autoOpen={opened}
           openTimeout={1200}
           name="SOCIAL LINKS"
           items={[

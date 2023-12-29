@@ -6,9 +6,9 @@ import supabase from "./supabaseClient";
 import Loading from "./Loading";
 
 function SiteNavigation() {
-  const [key, setKey] = useState(crypto.randomUUID());
   const [blogs, setBlogs] = useState<{ title: string; slug: string }[]>([]);
   const [isBlogsLoading, setBlogsLoading] = useState(true);
+  const [rootOpened, setRootOpened] = useState(false);
 
   useEffect(() => {
     supabase
@@ -31,7 +31,7 @@ function SiteNavigation() {
     return (
       <div
         onClick={() => {
-          setKey(crypto.randomUUID());
+          setRootOpened(false);
         }}
       >
         <Link to={to}>
@@ -42,7 +42,9 @@ function SiteNavigation() {
   }
   return (
     <Folder
-      key={key}
+      onOpenedChanged={(a) => setRootOpened(a)}
+      opened={rootOpened}
+      openTimeout={0}
       name="SITE NAVIGATION"
       items={[
         renderDestination("/", "Home"),
@@ -53,7 +55,7 @@ function SiteNavigation() {
             isBlogsLoading
               ? [<Loading />]
               : blogs.map((blog) =>
-                  renderDestination(`/blog/${blog.slug}`, blog.title)
+                  renderDestination(`/blog/${blog.slug}`, blog.title),
                 )
           }
         />,

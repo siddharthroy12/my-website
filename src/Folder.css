@@ -1,10 +1,13 @@
+.folder * {
+  text-transform: uppercase;
+}
+
 .folder-name {
   user-select: none;
   display: inline-block;
   z-index: 1;
   position: relative;
   padding-right: 5px;
-  padding-left: 3px;
   cursor: pointer;
 }
 
