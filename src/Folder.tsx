@@ -87,7 +87,7 @@ function Folder({
                   <div
                     style={{
                       width: "50%",
-                      height: index === items.length - 1 ? "14px" : "100%",
+                      height: index === items.length - 1 ? "17px" : "100%",
                       borderRight: "1px solid var(--line-color)",
                     }}
                   ></div>
