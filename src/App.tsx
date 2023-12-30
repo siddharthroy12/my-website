@@ -6,6 +6,7 @@ import AreYouLost from "./AreYouLost";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import supabase from "./supabaseClient";
 import grained from "./grained";
+import Terminal from "./pages/fun/Terminal";
 import Blog from "./pages/Blog";
 import { useEffect } from "react";
 
@@ -47,6 +48,15 @@ const router = createBrowserRouter([
       {
         path: "husky-pictures",
         element: <HuskyPictures />,
+      },
+      {
+        path: "fun",
+        children: [
+          {
+            path: "terminal",
+            element: <Terminal />,
+          },
+        ],
       },
     ],
   },

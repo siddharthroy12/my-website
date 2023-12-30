@@ -8,4 +8,8 @@ const useTitleStore = create<{
   setTitle: (newTitle: string) => set(() => ({ title: newTitle })),
 }));
 
+export const setTitle = (title: string) => {
+  useTitleStore.getState().setTitle(title);
+};
+
 export default useTitleStore;

@@ -59,7 +59,10 @@ function SiteNavigation() {
                 )
           }
         />,
-        <Folder name="FUN" items={[<div>Comming soon</div>]} />,
+        <Folder
+          name="FUN"
+          items={[renderDestination("/fun/terminal", "Terminal")]}
+        />,
       ]}
     />
   );

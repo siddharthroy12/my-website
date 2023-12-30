@@ -1,0 +1,34 @@
+.terminal * {
+  font-family: Krypton;
+}
+
+.terminal input {
+  border: none;
+  color: var(--text-color);
+  background: none;
+  font-size: 14px;
+  padding: 0;
+  outline: 0;
+  font-family: Krypton;
+  caret-color: transparent;
+}
+
+.inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.inputWrapper .caret {
+  position: absolute;
+  color: transparent;
+  animation: blinking 0.8s infinite;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
