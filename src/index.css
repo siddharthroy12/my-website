@@ -25,6 +25,10 @@
   --highlight-text-color: white;
 }
 
+html {
+  background: var(--page-color);
+}
+
 body {
   background: var(--page-color);
   margin: 0;
