@@ -2,13 +2,14 @@ import "./Header.css";
 import HoverAnimation from "./HoverAnimation";
 import { Link as RouterLink } from "react-router-dom";
 import useTitleStore from "./useTitleStore";
+import Face from "./Face";
 
 function Header() {
   const { title } = useTitleStore();
   return (
     <div className="header">
-      <RouterLink to="/" className="header-site-name">
-        <img src="/favicon.png" alt="site icon" />
+      <RouterLink to="/" className="header-site-logo">
+        <Face />
       </RouterLink>
       <div
         style={{

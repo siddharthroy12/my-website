@@ -5,7 +5,9 @@ import HuskyPictures from "./pages/HuskyPictures";
 import AreYouLost from "./AreYouLost";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import supabase from "./supabaseClient";
+import grained from "./grained";
 import Blog from "./pages/Blog";
+import { useEffect } from "react";
 
 async function blogLoader({ params }: any) {
   const blog = await supabase
@@ -51,10 +53,22 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useEffect(() => {
+    grained("#grained", {
+      animate: true,
+      patternWidth: 100,
+      patternHeight: 100,
+      grainOpacity: 0.05,
+      grainDensity: 1,
+      grainWidth: 1,
+      grainHeight: 1,
+    });
+  }, []);
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <div>
+      <div id="grained"></div>
+      <RouterProvider router={router}></RouterProvider>
+    </div>
   );
 }
 

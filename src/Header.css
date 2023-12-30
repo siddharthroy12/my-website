@@ -2,15 +2,18 @@
   border-bottom: 1px solid var(--line-color);
   display: flex;
   align-items: center;
+  height: 44px;
 }
 
-.header img {
-  display: block;
-  width: 49px;
-  padding: 0 2px;
+.header-site-logo {
+  width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-right: 1px solid var(--line-color);
-}
-
-.header-site-name * {
+  height: 100%;
   text-decoration: none;
+}
+.header-site-logo * {
+  text-decoration: none !important;
 }
