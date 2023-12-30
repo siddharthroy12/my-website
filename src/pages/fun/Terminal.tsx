@@ -34,8 +34,6 @@ commit-hash          ; Get the hash of the commit this website is built on
     "": () => {},
   };
 
-  console.log(import.meta.env.COMMIT_HASH);
-
   function resolveCommand() {
     setInput("");
     setOutput((p) => {
