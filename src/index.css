@@ -21,7 +21,7 @@
 }
 
 :root {
-  --page-color: #0c0c0c;
+  --page-color: #121212;
   --text-color: #d1d1d1;
   --imp-text-color: white;
   --line-color: #323232;
@@ -50,4 +50,19 @@ a {
 
 a > * {
   text-decoration: underline;
+}
+
+/* Custom scrollbar */
+
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: gray;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--page-color);
 }
