@@ -3,9 +3,7 @@ import { setTitle } from "../../useTitleStore";
 import "./Terminal.css";
 
 function Terminal() {
-  const [output, setOutput] = useState(
-    "NOTE: This terminal is currently non functional",
-  );
+  const [output, setOutput] = useState("");
   const [input, setInput] = useState("");
   const prompt = "$";
 
@@ -19,11 +17,24 @@ function Terminal() {
     cd: (directory?: string) => {
       return `changed path to ${directory}`;
     },
+    help: () => {
+      const text = `This is a fantasy terminal which has lots of fun commands to try out
+and this may or may not be used to access very securely protected admin panel ;)
+
+clear                ; Clear the screen
+whoami               ; Who am I?
+commit-hash          ; Get the hash of the commit this website is built on
+      `;
+      return text;
+    },
+    "commit-hash": () => import.meta.env.COMMIT_HASH,
     clear: () => {
       setOutput("");
     },
     "": () => {},
   };
+
+  console.log(import.meta.env.COMMIT_HASH);
 
   function resolveCommand() {
     setInput("");
@@ -40,6 +51,7 @@ function Terminal() {
       }
       output += `${prompt} ${input}`;
       if (result !== undefined) {
+        result = result.trim();
         output += `\n${result}`;
       }
       return output;
