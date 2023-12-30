@@ -21,7 +21,8 @@
 .inputWrapper .caret {
   position: absolute;
   color: transparent;
-  animation: blinking 0.8s infinite;
+  animation: blinking 0.3s infinite ease-in-out;
+  animation-direction: alternate;
 }
 
 @keyframes blinking {
