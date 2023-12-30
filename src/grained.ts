@@ -5,6 +5,8 @@
  * v0.0.1
  */
 
+// @ts-nocheck
+
 function grained(ele: string, opt: any) {
   const doc = document;
   var element = null,

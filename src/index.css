@@ -1,6 +1,6 @@
 @font-face {
   font-family: Krypton;
-  src: url(./Krypton.ttf);
+  src: url("/Krypton.ttf");
 }
 
 :root {
@@ -47,21 +47,7 @@ a {
   color: var(--imp-text-color);
   font-weight: bold;
 }
+
 a > * {
   text-decoration: underline;
-}
-
-.noise {
-  background: transparent;
-}
-
-.noise::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url(/img-noise-361x370.png);
-  z-index: -1;
 }
