@@ -3,7 +3,9 @@ import { setTitle } from "../../useTitleStore";
 import "./Terminal.css";
 
 function Terminal() {
-  const [output, setOutput] = useState("");
+  const [output, setOutput] = useState(
+    "NOTE: This terminal is currently non functional",
+  );
   const [input, setInput] = useState("");
   const prompt = "$";
 
@@ -61,7 +63,12 @@ function Terminal() {
           &nbsp;
         </span>
         <span className="inputWrapper">
-          <div className="caret">{input}</div>
+          <div
+            className="caret"
+            dangerouslySetInnerHTML={{
+              __html: input.replaceAll(" ", "&nbsp;"),
+            }}
+          ></div>
           <input
             onBlur={(e) => {
               e.target.focus();
@@ -70,10 +77,7 @@ function Terminal() {
             style={{ width: "100%" }}
             value={input}
             onChange={(e) => {
-              if (e.target.value.trim() === "" && e.target.value.length) {
-              } else {
-                setInput(e.target.value);
-              }
+              setInput(e.target.value);
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
