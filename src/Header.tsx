@@ -16,6 +16,7 @@ function Header() {
           fontWeight: "bold",
           color: "white",
           padding: "0 10px",
+          textTransform: "uppercase",
         }}
       >
         <HoverAnimation text={title} />
