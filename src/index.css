@@ -1,7 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap");
+@font-face {
+  font-family: Krypton;
+  src: url(Krypton.ttf);
+}
 
 :root {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: Krypton, monospace;
   line-height: 1.5;
   font-weight: 400;
 
