@@ -102,6 +102,9 @@ function HoverAnimation({ text }: HoverAnimationProps) {
       onMouseEnter={() => {
         playAnimation();
       }}
+      onTouchStart={() => {
+        playAnimation();
+      }}
     >
       {currentText}
     </code>
