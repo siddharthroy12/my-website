@@ -14,7 +14,7 @@ function Header() {
       <div
         style={{
           display: "inline-block",
-          fontWeight: "bold",
+          fontWeight: "700",
           color: "white",
           padding: "0 10px",
           textTransform: "uppercase",

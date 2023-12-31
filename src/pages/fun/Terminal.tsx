@@ -66,7 +66,7 @@ commit-hash          ; Get the hash of the commit this website is built on
       }
      `}
       </style>
-      <pre style={{ margin: 0 }}>{output}</pre>
+      <pre style={{ margin: 0, textWrap: "wrap" }}>{output}</pre>
       <div style={{ display: "flex" }}>
         <span>
           {`${prompt}`}
@@ -83,6 +83,9 @@ commit-hash          ; Get the hash of the commit this website is built on
             onBlur={(e) => {
               e.target.focus();
             }}
+            autoCorrect="off"
+            autoComplete="off"
+            autoCapitalize="off"
             autoFocus
             style={{ width: "100%" }}
             value={input}

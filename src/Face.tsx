@@ -4,16 +4,29 @@ function Face() {
   const [blink, setBlink] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
-      setBlink(true);
-      setTimeout(() => {
-        setBlink(false);
-      }, 100);
+      startBlink();
     }, 5000);
     return () => {
       clearInterval(interval);
     };
   }, []);
-  return <code>{blink ? "-_-" : "◉_◉"}</code>;
+
+  function startBlink() {
+    setBlink(true);
+    setTimeout(() => {
+      setBlink(false);
+    }, 100);
+  }
+
+  return (
+    <code
+      onMouseEnter={startBlink}
+      onTouchStart={startBlink}
+      onClick={startBlink}
+    >
+      {blink ? "-‿-" : "◉‿◉"}
+    </code>
+  );
 }
 
 export default Face;
