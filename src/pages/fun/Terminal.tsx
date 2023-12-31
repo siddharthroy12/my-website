@@ -61,7 +61,7 @@ commit-hash          ; Get the hash of the commit this website is built on
         output += p + "\n";
       }
       output += `${prompt} ${input}`;
-      if (result !== undefined) {
+      if (result !== undefined && result.length) {
         result = result.trim();
         output += `\n${result}`;
       }
