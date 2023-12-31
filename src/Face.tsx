@@ -18,13 +18,20 @@ function Face() {
     }, 100);
   }
 
+  const eye = blink ? "-" : "O";
+  const mouth = "‿";
+
   return (
     <code
       onMouseEnter={startBlink}
       onTouchStart={startBlink}
       onClick={startBlink}
     >
-      {blink ? "-‿-" : "◉‿◉"}
+      {eye}
+      <span style={{ fontFamily: "sans-serif", fontSize: "10px" }}>
+        {mouth}
+      </span>
+      {eye}
     </code>
   );
 }
