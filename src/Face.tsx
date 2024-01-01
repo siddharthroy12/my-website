@@ -18,7 +18,7 @@ function Face() {
     }, 100);
   }
 
-  const eye = blink ? "-" : "O";
+  const eye = blink ? "-" : "◉";
   const mouth = "‿";
 
   return (
@@ -28,7 +28,14 @@ function Face() {
       onClick={startBlink}
     >
       {eye}
-      <span style={{ fontFamily: "sans-serif", fontSize: "10px" }}>
+      <span
+        style={{
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+          display: "inline-block",
+          transform: "translate(0, 1px)",
+        }}
+      >
         {mouth}
       </span>
       {eye}
