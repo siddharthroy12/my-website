@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <main className="max-w-[50rem] mx-auto px-8 py-20">
       <p className="mb-8">
-        Hello 👋, I'm Siddharth, a frontend engineer based in India. I
+        Hello 👋, I&apos;m Siddharth, a frontend engineer based in India. I
         specialize in crafting applications and automation scripts.
       </p>
       <p>
