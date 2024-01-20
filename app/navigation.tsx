@@ -62,7 +62,7 @@ function NavigationLink({
       <Icon className="h-4 mr-2" />
       <div className="flex justify-between w-full">
         {name}
-        <ShortcutHint>{shortcut}</ShortcutHint>
+        {/* <ShortcutHint>{shortcut}</ShortcutHint> */}
       </div>
     </Link>
   );
