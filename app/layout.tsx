@@ -7,16 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { PanelBottomOpenIcon } from "lucide-react";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
