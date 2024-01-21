@@ -1,3 +1,5 @@
+"use client";
+
 import {
   HomeIcon,
   PenLineIcon,
@@ -17,6 +19,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { ForwardRefExoticComponent } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeSwitcher from "./theme-switcher";
@@ -53,7 +56,15 @@ function NavigationLink({
   link: string;
 }) {
   const Icon = icon;
+  const router = useRouter();
 
+  useEffect(() => {
+    addEventListener("keydown", (event) => {
+      if (event.key === shortcut.toString()) {
+        router.push(link);
+      }
+    });
+  });
   return (
     <Link
       className="inline-flex items-center justify-start whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground w-full h-9 py-2 px-2 mb-2  w-full flex justify-start text-left"
@@ -62,7 +73,7 @@ function NavigationLink({
       <Icon className="h-4 mr-2" />
       <div className="flex justify-between w-full">
         {name}
-        {/* <ShortcutHint>{shortcut}</ShortcutHint> */}
+        <ShortcutHint>{shortcut}</ShortcutHint>
       </div>
     </Link>
   );
@@ -129,7 +140,7 @@ export default function Navigation() {
           link="/journey"
         />
         <NavigationLink name="My Pet" shortcut={4} icon={DogIcon} link="/pet" />
-        <NavigationLink name="Fun" shortcut={4} icon={FlowerIcon} link="/fun" />
+        <NavigationLink name="Fun" shortcut={5} icon={FlowerIcon} link="/fun" />
       </nav>
       <Separator className="my-2" />
       <p className="text-muted-foreground text-xs p-2">Socials</p>
