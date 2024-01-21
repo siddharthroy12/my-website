@@ -43,7 +43,12 @@ export default function Pet() {
           ))
         : urls.map((url) => (
             <GridItem key={url}>
-              <Image src={url} fill alt="Pet picture" />
+              <Image
+                src={url}
+                fill
+                className="object-cover"
+                alt="Pet picture"
+              />
             </GridItem>
           ))}
     </div>
