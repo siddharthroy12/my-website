@@ -1,8 +1,27 @@
-"use client";
 import supabase from "@/lib/supabase";
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Skeleton } from "@/components/ui/skeleton";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Pet",
+  description: "A bratty husky",
+};
+
+async function fetchLinks() {
+  const res = await supabase.storage.from("husky-pictures").list("");
+
+  let list: any[] = [];
+  res.data?.forEach((file) => {
+    list.push(
+      supabase.storage.from("husky-pictures").getPublicUrl(file.name).data
+        .publicUrl
+    );
+  });
+
+  return list;
+}
 
 function GridItem({ children }: { children: React.ReactNode }) {
   return (
@@ -12,45 +31,18 @@ function GridItem({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Pet() {
-  const [urls, setUrls] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+export default async function Pet() {
+  const urls = await fetchLinks();
 
-  useEffect(() => {
-    supabase.storage
-      .from("husky-pictures")
-      .list("")
-      .then((res) => {
-        let list: any[] = [];
-        res.data?.forEach((file) => {
-          list.push(
-            supabase.storage.from("husky-pictures").getPublicUrl(file.name).data
-              .publicUrl
-          );
-        });
-        console.log("done");
-        setUrls(list);
-        setIsLoading(false);
-      });
-  }, []);
   return (
-    <div className="max-w-[80rem] mx-auto px-8 py-20 grid grid-cols-2 gap-4 lg:grid-cols-3 md:gap-6 xl:gap-8">
-      {isLoading
-        ? [1, 2, 3, 4, 5, 6].map((i) => (
-            <GridItem key={i}>
-              <Skeleton className="w-full h-full" />
-            </GridItem>
-          ))
-        : urls.map((url) => (
-            <GridItem key={url}>
-              <Image
-                src={url}
-                fill
-                className="object-cover"
-                alt="Pet picture"
-              />
-            </GridItem>
-          ))}
-    </div>
+    <ScrollArea className="grow w-full h-full">
+      <div className="max-w-[80rem] mx-auto px-8 py-20 grid grid-cols-2 gap-4 lg:grid-cols-3 md:gap-6 xl:gap-8">
+        {urls.map((url) => (
+          <GridItem key={url}>
+            <Image src={url} fill className="object-cover" alt="Pet picture" />
+          </GridItem>
+        ))}
+      </div>
+    </ScrollArea>
   );
 }

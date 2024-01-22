@@ -7,6 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ArrowUpRightIcon } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const projects = [
   {
@@ -58,46 +59,48 @@ const projects = [
 
 export default function Home() {
   return (
-    <main className="max-w-[50rem] mx-auto px-8 py-20">
-      <p className="mb-8">
-        Hello 👋, I&apos;m Siddharth, a frontend engineer based in India. I
-        specialize in crafting applications and automation scripts.
-      </p>
-      <p>
-        Worked as a Frontend Engineer at Everlytics developing analytical
-        dashboards powered by machine learning for various clients.
-        Additionally, I automated various tasks within the work environment. As
-        a hobbyist, I enjoy building games, apps, scripts, and have even dabbled
-        in creating a modded driver for my laptop.
-      </p>
+    <ScrollArea className="grow w-full h-full">
+      <main className="max-w-[50rem] mx-auto px-8 py-20">
+        <p className="mb-8">
+          Hello 👋, I&apos;m Siddharth, a frontend engineer based in India. I
+          specialize in crafting applications and automation scripts.
+        </p>
+        <p>
+          Worked as a Frontend Engineer at Everlytics developing analytical
+          dashboards powered by machine learning for various clients.
+          Additionally, I automated various tasks within the work environment.
+          As a hobbyist, I enjoy building games, apps, scripts, and have even
+          dabbled in creating a modded driver for my laptop.
+        </p>
 
-      <h2 className="mt-8 mb-4 text-xl font-semibold">Projects</h2>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[200px]">Title</TableHead>
-            <TableHead>Description</TableHead>
-            <TableHead className="text-right">Link</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {projects.map((project) => (
-            <TableRow key={project.title}>
-              <TableCell className="font-medium">{project.title}</TableCell>
-              <TableCell>{project.description}</TableCell>
-              <TableCell className="text-right">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  className="flex underline justify-end"
-                >
-                  Open <ArrowUpRightIcon className="w-[20px]" />
-                </a>
-              </TableCell>
+        <h2 className="mt-8 mb-4 text-xl font-semibold">Projects</h2>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[200px]">Title</TableHead>
+              <TableHead>Description</TableHead>
+              <TableHead className="text-right">Link</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </main>
+          </TableHeader>
+          <TableBody>
+            {projects.map((project) => (
+              <TableRow key={project.title}>
+                <TableCell className="font-medium">{project.title}</TableCell>
+                <TableCell>{project.description}</TableCell>
+                <TableCell className="text-right">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    className="flex underline justify-end"
+                  >
+                    Open <ArrowUpRightIcon className="w-[20px]" />
+                  </a>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </main>
+    </ScrollArea>
   );
 }

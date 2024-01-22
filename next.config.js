@@ -10,8 +10,7 @@ const nextConfig = {
       },
     ],
   },
+  reactStrictMode: false,
 };
-
-console.log(nextConfig.images.remotePatterns[0]);
 
 module.exports = nextConfig;

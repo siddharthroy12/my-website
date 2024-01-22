@@ -4,7 +4,6 @@ import "./globals.css";
 import Navigation from "./navigation";
 import { Separator } from "@/components/ui/separator";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { PanelBottomOpenIcon } from "lucide-react";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
@@ -39,7 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div vaul-drawer-wrapper="" suppressHydrationWarning>
-            <div className="relative flex flex-col min-h-screen flex-col bg-background">
+            <div className="relative flex flex-col min-h-screen flex-col bg-background w-screen">
               <div className="h-12 shrink-0 md:hidden ">
                 <div className="h-full flex items-center px-2">
                   <Drawer>
@@ -60,7 +59,7 @@ export default function RootLayout({
                   <Navigation />
                 </div>
                 <Separator orientation="vertical" />
-                <ScrollArea className="grow">{children}</ScrollArea>
+                <div className="w-full overflow-auto">{children}</div>
               </div>
             </div>
           </div>

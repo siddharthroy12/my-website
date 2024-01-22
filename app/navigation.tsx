@@ -17,12 +17,11 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { ForwardRefExoticComponent } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeSwitcher from "./theme-switcher";
 import { useEffect } from "react";
-import { buttonVariants } from "@/components/ui/button";
 
 const socials = {
   twitter: "https://twitter.com/reactoverflow",
@@ -56,6 +55,7 @@ function NavigationLink({
 }) {
   const Icon = icon;
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     addEventListener("keydown", (event) => {
@@ -64,11 +64,19 @@ function NavigationLink({
       }
     });
   });
+  let active = false;
+  if (link === "/") {
+    active = pathname === link;
+  } else {
+    active = pathname.includes(link);
+  }
   return (
     <Button
       variant="ghost"
       asChild
-      className="w-full justify-start text-left px-2"
+      className={`w-full justify-start text-left px-2 ${
+        active ? "bg-accent" : ""
+      }`}
     >
       <Link href={link}>
         <Icon className="h-4 mr-2" />
@@ -127,7 +135,7 @@ export default function Navigation() {
           <p className="text-muted-foreground">Frontend Enginner</p>
         </div>
       </Link>
-      <nav>
+      <nav className="flex flex-col gap-1">
         <NavigationLink name="Home" shortcut={1} icon={HomeIcon} link="/" />
         <NavigationLink
           name="Posts"
@@ -146,14 +154,21 @@ export default function Navigation() {
       </nav>
       <Separator className="my-2" />
       <p className="text-muted-foreground text-xs p-2">Socials</p>
-      <SocialLink name="Twitter" link={socials.twitter} icon={TwitterIcon} />
-      <SocialLink
-        name="Instagram"
-        link={socials.instagram}
-        icon={InstagramIcon}
-      />
-      <SocialLink name="Github" link={socials.github} icon={GithubIcon} />
-      <SocialLink name="LinkedIn" link={socials.linkedin} icon={LinkedinIcon} />
+      <div className="flex flex-col gap-1">
+        <SocialLink name="Twitter" link={socials.twitter} icon={TwitterIcon} />
+        <SocialLink
+          name="Instagram"
+          link={socials.instagram}
+          icon={InstagramIcon}
+        />
+        <SocialLink name="Github" link={socials.github} icon={GithubIcon} />
+        <SocialLink
+          name="LinkedIn"
+          link={socials.linkedin}
+          icon={LinkedinIcon}
+        />
+      </div>
+
       <Separator className="my-2" />
       <p className="text-muted-foreground text-xs p-2">Settings</p>
       <ThemeSwitcher />
