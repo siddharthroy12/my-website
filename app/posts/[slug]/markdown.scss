@@ -22,7 +22,61 @@
   code {
     width: 100%;
   }
+
   img {
+    width: 100%;
+  }
+
+  ol {
+    list-style: upper-latin;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  li {
+    margin-left: 18px;
+  }
+
+  .contains-task-list {
+    list-style: none;
+    li {
+      margin-left: 0;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  blockquote {
+    border-left: 8px solid hsl(var(--accent));
+    padding-left: 10px;
+  }
+  table {
+    width: 100%;
+
+    tr {
+      border-bottom-width: 1px;
+    }
+
+    td {
+      padding: 0.5rem;
+    }
+
+    th {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      height: 2.5rem;
+      font-weight: 500;
+      text-align: left;
+      vertical-align: middle;
+      color: hsl(var(--muted-foreground));
+    }
+  }
+
+  iframe {
     width: 100%;
   }
 }
