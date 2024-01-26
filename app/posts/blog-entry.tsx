@@ -18,13 +18,13 @@ export default function BlogEntry({
   return (
     <Button
       variant="ghost"
-      className={`flex-col text-left items-start w-full py-8 px-2 ${
+      className={`flex-col text-left h-[auto] items-start w-full py-2 px-2 ${
         pathname.includes(slug) ? "bg-accent" : ""
       }`}
       asChild
     >
       <Link href={`/posts/${slug}`}>
-        <p className="font-medium mb-2">{title}</p>
+        <p className="font-medium mb-2 text-wrap">{title}</p>
         <p className="text-muted-foreground">{`${date.toLocaleString(
           "default",
           {
