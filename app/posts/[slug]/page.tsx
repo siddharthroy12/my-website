@@ -4,7 +4,7 @@ import remarkGfm from "remark-gfm";
 import "./markdown.scss";
 import { Card } from "@/components/ui/card";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { duotoneSea } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { duotoneSea } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 
 export const revalidate = 0;
