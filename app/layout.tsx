@@ -37,10 +37,12 @@ export default function RootLayout({
             <div className="relative flex flex-col min-h-screen flex-col bg-background w-screen">
               <div className="h-12 shrink-0 md:hidden ">
                 <div className="h-full flex justify-between items-center px-2">
-                  <div className="flex items-center">
+                  <div className="flex items-center min-w-0">
                     <BackButton />
                     <div className="w-2"></div>
-                    <PageTitle />
+                    <p className="truncate">
+                      <PageTitle />
+                    </p>
                   </div>
                   <Drawer>
                     <DrawerTrigger asChild>
