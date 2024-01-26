@@ -68,26 +68,30 @@ export default async function Post({ params }: { params: { slug: string } }) {
               language = match[1];
             }
             return (
-              // @ts-ignore
-              <SyntaxHighlighter
-                {...rest}
-                PreTag="div"
-                children={String(children).replace(/\n$/, "")} // eslint-disable-line
-                language={language}
-                style={duotoneSea}
-                useInlineStyles
-                customStyle={{
-                  fontFamily: "monospace",
-                  background: "none",
-                  padding: 0,
-                  margin: 0,
-                  border: "none",
-                  textShadow: "none",
-                  boxShadow: "none",
-                  overflow: "unset",
-                }}
-                codeTagProps={{ style: { background: "none" } }}
-              />
+              <div className="bg-zinc-950 dark:bg-zinc-900 inline-block rounded px-2 text-teal-100">
+                {/* @ts-ignore */}
+                <SyntaxHighlighter
+                  {...rest}
+                  PreTag="div"
+                  children={String(children).replace(/\n$/, "")} // eslint-disable-line
+                  language={language}
+                  style={duotoneSea}
+                  useInlineStyles
+                  customStyle={{
+                    fontFamily: "monospace",
+                    background: "none",
+                    padding: 0,
+                    margin: 0,
+                    border: "none",
+                    color: "rgb(186 230 253)",
+                    textShadow: "none",
+                    boxShadow: "none",
+                    overflow: "unset",
+                    display: "inline-block",
+                  }}
+                  codeTagProps={{ style: { background: "none" } }}
+                />
+              </div>
             );
           },
           pre({ children }) {
