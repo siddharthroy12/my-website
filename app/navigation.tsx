@@ -16,6 +16,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import { DrawerClose } from "@/components/ui/drawer";
 import { ForwardRefExoticComponent } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
@@ -47,11 +48,13 @@ function NavigationLink({
   shortcut,
   icon,
   link,
+  inDrawer,
 }: {
   name: string;
   shortcut: number;
   icon: ForwardRefExoticComponent<any>;
   link: string;
+  inDrawer: boolean;
 }) {
   const Icon = icon;
   const router = useRouter();
@@ -70,7 +73,8 @@ function NavigationLink({
   } else {
     active = pathname.includes(link);
   }
-  return (
+
+  const output = (
     <Button
       variant="ghost"
       asChild
@@ -87,6 +91,12 @@ function NavigationLink({
       </Link>
     </Button>
   );
+
+  if (inDrawer) {
+    return <DrawerClose asChild>{output}</DrawerClose>;
+  }
+
+  return output;
 }
 
 function SocialLink({
@@ -116,7 +126,11 @@ function SocialLink({
   );
 }
 
-export default function Navigation() {
+type NavigationProps = {
+  inDrawer: boolean;
+};
+
+export default function Navigation({ inDrawer }: NavigationProps) {
   return (
     <ScrollArea className="p-2 h-full">
       <Link
@@ -136,21 +150,41 @@ export default function Navigation() {
         </div>
       </Link>
       <nav className="flex flex-col gap-1">
-        <NavigationLink name="Home" shortcut={1} icon={HomeIcon} link="/" />
+        <NavigationLink
+          name="Home"
+          shortcut={1}
+          icon={HomeIcon}
+          link="/"
+          inDrawer={inDrawer}
+        />
         <NavigationLink
           name="Posts"
           shortcut={2}
           icon={PenLineIcon}
           link="/posts"
+          inDrawer={inDrawer}
         />
         <NavigationLink
           name="Journey"
           shortcut={3}
           icon={RouteIcon}
           link="/journey"
+          inDrawer={inDrawer}
         />
-        <NavigationLink name="My Pet" shortcut={4} icon={DogIcon} link="/pet" />
-        <NavigationLink name="Fun" shortcut={5} icon={FlowerIcon} link="/fun" />
+        <NavigationLink
+          name="My Pet"
+          shortcut={4}
+          icon={DogIcon}
+          link="/pet"
+          inDrawer={inDrawer}
+        />
+        <NavigationLink
+          name="Fun"
+          shortcut={5}
+          icon={FlowerIcon}
+          link="/fun"
+          inDrawer={inDrawer}
+        />
       </nav>
       <Separator className="my-2" />
       <p className="text-muted-foreground text-xs p-2">Socials</p>

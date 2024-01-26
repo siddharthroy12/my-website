@@ -7,6 +7,23 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { duotoneSea } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 
+export const revalidate = 0;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const blog = await supabase
+    .from("blogs")
+    .select("slug, title, content, created_at")
+    .eq("slug", params.slug);
+
+  return {
+    title: blog.data![0].title,
+  };
+}
+
 async function getPostMarkdown(slug: string) {
   const blog = await supabase
     .from("blogs")
@@ -55,7 +72,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
               <SyntaxHighlighter
                 {...rest}
                 PreTag="div"
-                children={String(children).replace(/\n$/, "")}
+                children={String(children).replace(/\n$/, "")} // eslint-disable-line
                 language={language}
                 style={duotoneSea}
                 useInlineStyles

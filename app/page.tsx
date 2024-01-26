@@ -8,6 +8,12 @@ import {
 } from "@/components/ui/table";
 import { ArrowUpRightIcon } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Siddharth Roy",
+  description: "Frontend Engineer",
+};
 
 const projects = [
   {

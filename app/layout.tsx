@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "./navigation";
@@ -8,13 +7,10 @@ import { Button } from "@/components/ui/button";
 import { PanelBottomOpenIcon } from "lucide-react";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
+import BackButton from "./back-button";
+import PageTitle from "./page-title";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Siddharth Roy",
-  description: "Frontend Engineer",
-};
 
 export default function RootLayout({
   children,
@@ -40,7 +36,12 @@ export default function RootLayout({
           <div vaul-drawer-wrapper="" suppressHydrationWarning>
             <div className="relative flex flex-col min-h-screen flex-col bg-background w-screen">
               <div className="h-12 shrink-0 md:hidden ">
-                <div className="h-full flex items-center px-2">
+                <div className="h-full flex justify-between items-center px-2">
+                  <div className="flex items-center">
+                    <BackButton />
+                    <div className="w-2"></div>
+                    <PageTitle />
+                  </div>
                   <Drawer>
                     <DrawerTrigger asChild>
                       <Button variant="ghost" className="w-[35px] h-[35px] p-0">
@@ -48,7 +49,7 @@ export default function RootLayout({
                       </Button>
                     </DrawerTrigger>
                     <DrawerContent className="h-[80%]">
-                      <Navigation />
+                      <Navigation inDrawer={true} />
                     </DrawerContent>
                   </Drawer>
                 </div>
@@ -56,7 +57,7 @@ export default function RootLayout({
               </div>
               <div className="flex md:h-screen h-[calc(100vh-48px)]">
                 <div className="w-64 shrink-0 hidden md:block">
-                  <Navigation />
+                  <Navigation inDrawer={false} />
                 </div>
                 <Separator orientation="vertical" />
                 <div className="w-full overflow-auto">{children}</div>
