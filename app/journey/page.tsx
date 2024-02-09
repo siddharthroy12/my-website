@@ -6,8 +6,7 @@ const timeline = [
     events: [
       {
         title: "Joind SARAL as front-end engineer 🎉",
-        description:
-          "Awesome product, awesome team. Can't wait to to contibute!",
+        description: "Awesome product, awesome team. Can't wait to contibute!",
       },
     ],
   },
@@ -17,21 +16,21 @@ const timeline = [
       {
         title: "Started working on a time tracker app.",
         description:
-          "I needed a cross-platform app to track my work hours so I started making one using Flutter.",
+          "I needed a cross-platform app to track my work hours, so I started making one using Flutter.",
       },
       {
         title: "Contributed to a Open-Source game.",
-        description: "Checkout SM63Redux. It's a awesome mario fan-game.",
+        description: "Check out SM63Redux. It's an awesome Mario fan-game.",
       },
       {
         title: "Forked linux touchpad driver.",
         description:
-          "My laptop has some hardware issues with the touchpad so I had to modify the driver to make it usable. Thanks Dell 💩.",
+          "My laptop has some hardware issues with the touchpad, so I had to modify the driver to make it usable. Thanks Dell 💩.",
       },
       {
         title: "Made games using PICO-8.",
         description:
-          "Discovered an awesome virtual console to make pixel-art games using LUA.",
+          "Discovered an awesome virtual console for making pixel-art games using Lua.",
       },
     ],
   },
@@ -41,12 +40,12 @@ const timeline = [
       {
         title: "Got my first job at Everlytics 🎉.",
         description:
-          "Started as an intern, after sometime became frontend lead.",
+          "Started as an intern, and after some time, became the frontend lead.",
       },
       {
         title: "Made touch typing test in C++.",
         description:
-          "I wanted a fast offline version on monkeytype so I implemented it myself.",
+          "I wanted a fast offline version of MonkeyType, so I implemented it myself.",
       },
       {
         title: "Made full-stack MVP reddit clone.",
