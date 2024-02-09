@@ -36,7 +36,7 @@ export default async function Pet() {
 
   return (
     <ScrollArea className="grow w-full h-full">
-      <div className="max-w-[80rem] mx-auto px-8 py-20 grid grid-cols-2 gap-4 lg:grid-cols-3 md:gap-6 xl:gap-8">
+      <div className="max-w-[80rem] mx-auto px-8 py-8 grid grid-cols-2 gap-4 lg:grid-cols-3 md:gap-6 xl:gap-8">
         {urls.map((url) => (
           <GridItem key={url}>
             <Image src={url} fill className="object-cover" alt="Pet picture" />
