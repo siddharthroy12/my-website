@@ -1,4 +1,10 @@
-import { FlagTriangleRightIcon, PlusIcon } from "lucide-react";
+import { PlusIcon } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Journey",
+  description: "From being born to becoming developer",
+};
 
 const timeline = [
   {
