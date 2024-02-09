@@ -101,14 +101,20 @@ export default function Journey() {
           <h1 className="text-3xl font-semibold mb-6">Journey</h1>
           <div className="flex flex-col items-stretch gap-12">
             {timeline.map((year) => (
-              <div className="flex flex-col items-baseline gap-6 md:flex-row md:gap-12 ">
+              <div
+                className="flex flex-col items-baseline gap-6 md:flex-row md:gap-12"
+                key={year.year}
+              >
                 <div className="flex items-center">
                   <div className="font-semibold text-lg">{year.year}</div>
                   <hr className="my-0 ml-4 flex-1 border-dashed border-gray-200" />
                 </div>
                 <section>
                   {year.events.map((event, index) => (
-                    <div className="relative flex pb-8 last:pb-0">
+                    <div
+                      className="relative flex pb-8 last:pb-0"
+                      key={event.title}
+                    >
                       {index !== year.events.length - 1 ? (
                         <div className="absolute inset-0 flex w-6 items-center justify-center">
                           <div className="pointer-events-none h-full w-px border-l-[1px]"></div>
