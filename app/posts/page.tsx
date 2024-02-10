@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Posts() {
-  return <Loading />;
+  return <></>;
 }
