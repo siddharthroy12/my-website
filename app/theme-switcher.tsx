@@ -26,7 +26,7 @@ export default function ThemeSwitcher() {
       <Label htmlFor="dark-mode">Dark Mode</Label>
       <Switch
         id="dark-mode"
-        aria-lable="Theme mode switch"
+        aria-label="Theme mode switch"
         checked={theme === "dark"}
         onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
       />
