@@ -24,7 +24,7 @@ export default function BlogEntry({
       asChild
     >
       <Link href={`/posts/${slug}`}>
-        <p className="font-medium mb-2 text-wrap">{title}</p>
+        <p className="font-medium mb-2 text-wrap whitespace-normal">{title}</p>
         <p className="text-muted-foreground">{`${date.toLocaleString(
           "default",
           {

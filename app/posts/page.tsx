@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Loading from "../loading";
 
 export const metadata: Metadata = {
   title: "Posts",
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Posts() {
-  return <></>;
+  return <Loading />;
 }
