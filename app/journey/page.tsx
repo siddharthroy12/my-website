@@ -11,7 +11,7 @@ const timeline = [
     year: "2024",
     events: [
       {
-        title: "Joind SARAL as front-end engineer 🎉",
+        title: "Joined SARAL as front-end engineer 🎉",
         description: "Awesome product, awesome team. Can't wait to contibute!",
       },
     ],
