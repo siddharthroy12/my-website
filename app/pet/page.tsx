@@ -4,6 +4,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "My Pet",
   description: "A bratty husky",
