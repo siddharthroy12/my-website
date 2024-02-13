@@ -140,7 +140,7 @@ export default function Navigation({ inDrawer }: NavigationProps) {
         <Image
           width={40}
           height={40}
-          src="/author.jpeg"
+          src="/author.webp"
           alt="Picture of the author"
           className="mr-4 rounded-full"
         />
