@@ -31,12 +31,11 @@ const socials = {
   github: "https://github.com/siddharthroy12",
 };
 
-function ShortcutHint({ children }: { children: React.ReactNode }) {
+function ShortcutHint({ children, active }: { active: boolean, children: React.ReactNode }) {
   return (
     <Badge
-      variant="outline"
-      className="h-5 w-5 place-content-center rounded border text-xs font-medium text-gray-500 transition-colors duration-200 lg:grid"
-      style={{ background: "hsl(var(--secondary))" }}
+      variant={active ? 'default' : 'secondary'}
+      className={`h-5 w-5 place-content-center rounded border text-xs font-medium transition-colors duration-200 lg:grid`}
     >
       {children}
     </Badge>
@@ -86,7 +85,7 @@ function NavigationLink({
         <Icon className="h-4 mr-2" />
         <div className="flex justify-between w-full">
           {name}
-          <ShortcutHint>{shortcut}</ShortcutHint>
+          <ShortcutHint active={active}>{shortcut}</ShortcutHint>
         </div>
       </Link>
     </Button>

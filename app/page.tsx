@@ -68,17 +68,8 @@ export default function Home() {
     <ScrollArea className="grow w-full h-full">
       <main className="max-w-[50rem] mx-auto px-8 py-20">
         <p className="mb-8">
-          Hello 👋, I&apos;m Siddharth, a frontend engineer based in India. I
-          specialize in crafting applications and automation scripts.
+          A software engineer who builds all kinds of software, including web apps, mobile apps, CLI tools, automation scripts, and even dumb games.
         </p>
-        <p>
-          Worked as a Frontend Engineer at Everlytics developing analytical
-          dashboards powered by machine learning for various clients.
-          Additionally, I automated various tasks within the work environment.
-          As a hobbyist, I enjoy building games, apps, scripts, and have even
-          dabbled in creating a modded driver for my laptop.
-        </p>
-
         <h2 className="mt-8 mb-4 text-xl font-semibold">Projects</h2>
         <Table>
           <TableHeader>
