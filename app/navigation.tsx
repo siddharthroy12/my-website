@@ -25,7 +25,7 @@ import ThemeSwitcher from "./theme-switcher";
 import { useEffect } from "react";
 
 const socials = {
-  twitter: "https://twitter.com/reactoverflow",
+  twitter: "https://bsky.app/profile/siddharthroy.com",
   instagram: "https://www.instagram.com/cybrchad/",
   linkedin: "https://www.linkedin.com/in/reactoverflow/",
   github: "https://github.com/siddharthroy12",
@@ -77,9 +77,8 @@ function NavigationLink({
     <Button
       variant="ghost"
       asChild
-      className={`w-full justify-start text-left px-2 ${
-        active ? "bg-accent" : ""
-      }`}
+      className={`w-full justify-start text-left px-2 ${active ? "bg-accent" : ""
+        }`}
     >
       <Link href={link}>
         <Icon className="h-4 mr-2" />
@@ -136,16 +135,9 @@ export default function Navigation({ inDrawer }: NavigationProps) {
         href="/"
         className="inline-flex items-center justify-start whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground w-full h-9 py-6 px-2 mb-2 flex justify-start text-left"
       >
-        <Image
-          width={40}
-          height={40}
-          src="/author.webp"
-          alt="Picture of the author"
-          className="mr-4 rounded-full"
-        />
         <div>
           <p>Siddharth Roy</p>
-          <p className="text-muted-foreground">Frontend Enginner</p>
+          <p className="text-muted-foreground">Software Dev</p>
         </div>
       </Link>
       <nav className="flex flex-col gap-1">
@@ -188,18 +180,13 @@ export default function Navigation({ inDrawer }: NavigationProps) {
       <Separator className="my-2" />
       <p className="text-muted-foreground text-xs p-2">Socials</p>
       <div className="flex flex-col gap-1">
-        <SocialLink name="Twitter" link={socials.twitter} icon={TwitterIcon} />
+        <SocialLink name="BlueSky" link={socials.twitter} icon={TwitterIcon} />
         <SocialLink
           name="Instagram"
           link={socials.instagram}
           icon={InstagramIcon}
         />
         <SocialLink name="Github" link={socials.github} icon={GithubIcon} />
-        <SocialLink
-          name="LinkedIn"
-          link={socials.linkedin}
-          icon={LinkedinIcon}
-        />
       </div>
 
       <Separator className="my-2" />
