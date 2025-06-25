@@ -41,7 +41,6 @@ Flexbox Container
 └── Child 1 (flexbox item)
     └── Child 2 (nested element)
         └── Child 3 (contains overflowing content)
-
 ```
 
 You need to apply `overflow: auto` to both Child 1 and Child 3, ensuring that each level properly handles its content boundaries.
