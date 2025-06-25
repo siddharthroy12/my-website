@@ -1,4 +1,3 @@
-import supabase from "@/lib/supabase";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import "./markdown.scss";
@@ -6,44 +5,47 @@ import { Card } from "@/components/ui/card";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { duotoneSea } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
+import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
+import { notFound } from "next/navigation";
 
-export const revalidate = 0;
+// Generate static params for all posts
+export async function generateStaticParams() {
+  const posts = getAllPostSlugs()
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
 
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
 }) {
-  const blog = await supabase
-    .from("blogs")
-    .select("slug, title, content, created_at")
-    .eq("slug", params.slug);
-
-  return {
-    title: blog.data![0].title,
-  };
-}
-
-async function getPostMarkdown(slug: string) {
-  const blog = await supabase
-    .from("blogs")
-    .select("slug, title, content, created_at")
-    .eq("slug", slug);
-
-  if (blog.data === null) {
-    throw new Response("", {
-      status: 404,
-      statusText: "Not Found",
-    });
+  const post = await getPostBySlug(params.slug)
+  
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+    }
   }
 
-  return blog.data[0];
+  return {
+    title: post.title,
+  }
 }
 
 export default async function Post({ params }: { params: { slug: string } }) {
-  const res = await getPostMarkdown(params.slug);
-  const date = new Date(res.created_at);
+  const res = await getPostBySlug(params.slug);
 
+   if (!res) {
+    notFound()
+  }
+
+  
+  const date = new Date(res.date);
+
+ 
   return (
     <div className="p-10" suppressHydrationWarning>
       <h1 className="mt-10 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">

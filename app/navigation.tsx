@@ -180,7 +180,6 @@ export default function Navigation({ inDrawer }: NavigationProps) {
       <Separator className="my-2" />
       <p className="text-muted-foreground text-xs p-2">Socials</p>
       <div className="flex flex-col gap-1">
-        <SocialLink name="BlueSky" link={socials.twitter} icon={TwitterIcon} />
         <SocialLink
           name="Instagram"
           link={socials.instagram}

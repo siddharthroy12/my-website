@@ -7,7 +7,7 @@ type BlogsProps = {
   blogs: {
     title: string;
     slug: string;
-    createdAt: string;
+    date: string;
   }[];
 };
 

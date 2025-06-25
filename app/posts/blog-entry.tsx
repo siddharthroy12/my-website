@@ -5,15 +5,15 @@ import { usePathname } from "next/navigation";
 
 export default function BlogEntry({
   title,
-  createdAt,
+  date,
   slug,
 }: {
   title: string;
-  createdAt: string;
+  date: string;
   slug: string;
 }) {
   const pathname = usePathname();
-  const date = new Date(createdAt);
+  const dateObject = new Date(date);
 
   return (
     <Button
@@ -25,12 +25,12 @@ export default function BlogEntry({
     >
       <Link href={`/posts/${slug}`}>
         <p className="font-medium mb-2 text-wrap whitespace-normal">{title}</p>
-        <p className="text-muted-foreground">{`${date.toLocaleString(
+        <p className="text-muted-foreground">{`${dateObject.toLocaleString(
           "default",
           {
             month: "long",
           }
-        )} ${date.getDate()}, ${date.getFullYear()}`}</p>
+        )} ${dateObject.getDate()}, ${dateObject.getFullYear()}`}</p>
       </Link>
     </Button>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Loading from "../loading";
+
 
 export const metadata: Metadata = {
   title: "Posts",

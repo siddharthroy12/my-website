@@ -1,20 +1,11 @@
 import { Separator } from "@/components/ui/separator";
 import supabase from "@/lib/supabase";
 import Blogs from "./blogs";
+import { getAllPosts } from "@/lib/posts";
 
-export const revalidate = 0;
 
 async function getBlogList() {
-  let res = await supabase.from("blogs").select("title, slug, created_at");
-  let list: { title: string; slug: string; createdAt: string }[] = [];
-  res.data?.forEach((row) => {
-    list.push({
-      title: row.title,
-      slug: row.slug,
-      createdAt: row.created_at,
-    });
-  });
-  return list;
+  return getAllPosts();
 }
 
 export default async function PostsLayout({
