@@ -34,7 +34,7 @@ const projects = [
   {
     title: "Gravity sandbox",
     description: "2D Newtonian gravity simulator",
-    link: "https://github.com/siddharthroy12/recoded",
+    link: "https://github.com/siddharthroy12/Gravity-Sandbox",
   },
   {
     title: "Touch Typer",
