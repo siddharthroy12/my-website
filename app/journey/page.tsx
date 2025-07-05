@@ -8,6 +8,23 @@ export const metadata: Metadata = {
 
 const timeline = [
   {
+    year: "2025",
+    events: [
+      {
+        title: "Started Learning Trading",
+        description: "Bought equity for the first time. Small investment but I'm learning",
+      },
+      {
+        title: "Bought a M4 Macbook Air",
+        description: "I never thought I would do this but here I am. This thing is a beast. I won't miss Windows. Ever",
+      },
+      {
+        title: "Started Sketching",
+        description: "Checkout my sketches in through the navigation.",
+      },
+    ],
+  },
+  {
     year: "2024",
     events: [
       {

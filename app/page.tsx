@@ -68,7 +68,7 @@ export default function Home() {
     <ScrollArea className="grow w-full h-full">
       <main className="max-w-[50rem] mx-auto px-8 py-20">
         <p className="mb-8">
-          A developer who builds all kinds of software, including web apps, mobile apps, CLI tools, automation scripts, and even dumb games.
+         A guy who writes software during work hours and makes games and sketches during free time. Go have a look around my websites; there is some cool stuff here.
         </p>
         <h2 className="mt-8 mb-4 text-xl font-semibold">Projects</h2>
         <Table>

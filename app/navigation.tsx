@@ -11,6 +11,9 @@ import {
   GithubIcon,
   LinkedinIcon,
   ArrowUpRightIcon,
+  PenToolIcon,
+  PenTool,
+  Gamepad2
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
@@ -163,16 +166,23 @@ export default function Navigation({ inDrawer }: NavigationProps) {
           inDrawer={inDrawer}
         />
         <NavigationLink
-          name="My Pet"
+          name="Doggie"
           shortcut={4}
           icon={DogIcon}
           link="/pet"
           inDrawer={inDrawer}
         />
-        <NavigationLink
-          name="Fun"
+         <NavigationLink
+          name="Sketches"
           shortcut={5}
-          icon={FlowerIcon}
+          icon={PenToolIcon}
+          link="/sketches"
+          inDrawer={inDrawer}
+        />
+        <NavigationLink
+          name="Games"
+          shortcut={6}
+          icon={Gamepad2}
           link="/fun"
           inDrawer={inDrawer}
         />
