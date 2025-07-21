@@ -17,14 +17,14 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    title: "Links Explorer",
+    description: "View Interactive graph of links",
+    link: "https://github.com/siddharthroy12/links_explorer",
+  },
+  {
     title: "Timebrew",
     description: "A personal time tracker",
     link: "https://github.com/siddharthroy12/timebrew",
-  },
-  {
-    title: "Agrus",
-    description: "A simple and stupid reddit clone",
-    link: "https://github.com/siddharthroy12/Agrus",
   },
   {
     title: "Recoded",
@@ -47,19 +47,14 @@ const projects = [
     link: "https://www.lexaloffle.com/bbs/?pid=111184",
   },
   {
+    title: "Dash&Doge",
+    description: "My first PICO-8 game",
+    link: "https://siddharthroy12.itch.io/dashdoge",
+  },
+  {
     title: "Big Text Meme generator",
     description: "Generate FUNNY BIG TEXTS",
     link: "https://big-text-meme-generator.vercel.app/",
-  },
-  {
-    title: "Raylib CMake Template",
-    description: "Start making games using C/C++ and Raylib in a minute",
-    link: "https://github.com/siddharthroy12/raylib-cmake-template",
-  },
-  {
-    title: "Hypersonic",
-    description: "3D space shooter demo",
-    link: "https://github.com/siddharthroy12/Hypersonic",
   },
 ];
 
@@ -68,7 +63,9 @@ export default function Home() {
     <ScrollArea className="grow w-full h-full">
       <main className="max-w-[50rem] mx-auto px-8 py-20">
         <p className="mb-8">
-         A guy who writes software during work hours and makes games and sketches during free time. Go have a look around my websites; there is some cool stuff here.
+          A guy who writes software during work hours and makes games and
+          sketches during free time. Go have a look around my websites; there is
+          some cool stuff here.
         </p>
         <h2 className="mt-8 mb-4 text-xl font-semibold">Projects</h2>
         <Table>
